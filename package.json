@@ -1,0 +1,70 @@
+{
+  "name": "koalerplate",
+  "homepage": "https://github.com/dbalas/koalerplate.git",
+  "description": "A simple Koa 2 boilerplate for API's using ES6.",
+  "bugs": {
+    "url": "https://github.com/dbalas/koalerplate/issues/new"
+  },
+  "keywords": [
+    "koa",
+    "koa2",
+    "boilerplate",
+    "koalerplate",
+    "api",
+    "es6"
+  ],
+  "repository": "git@github.com:dbalas/koalerplate.git",
+  "author": "Daniel Balastegui",
+  "license": "MIT",
+  "version": "1.4.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec babel-node index.js",
+    "startserver": "nodemon index.js",
+    "start": "cross-env NODE_ENVIRONMENT=production node index",
+    "build": "babel src -d build -s && pm2 start",
+    "update": "sudo git pull && sudo npm run build"
+  },
+  "dependencies": {
+    "@babel/core": "^7.7.5",
+    "@koa/cors": "^3.0.0",
+    "bcrypt-nodejs": "0.0.3",
+    "cross-env": "^5.2.0",
+    "dotenv": "^8.0.0",
+    "husky": "^3.1.0",
+    "install": "^0.13.0",
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.6.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-helmet": "^4.0.0",
+    "koa-logger": "^3.2.0",
+    "koa-passport": "^4.1.3",
+    "koa-respond": "^2.1.0",
+    "koa-router": "^7.4.0",
+    "koa-session": "^5.12.2",
+    "koa-validate": "^1.0.7",
+    "moment": "^2.24.0",
+    "npm": "^6.10.2",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "pg": "^7.11.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.7.6",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-watch": "^7.0.0",
+    "nodemon": "^1.18.9"
+  },
+  "husky": {
+    "hooks": {
+      "post-merge": "npm install && npm run build"
+    }
+  }
+}
